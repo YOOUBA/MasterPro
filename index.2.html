@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master MAX Leading streaming services with thousands of live tv and Large VOD Library.">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <title>Master MAX v2 - Sleek & Techy Streaming</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/vendor.bundle.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RZE9FDN2T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7RZE9FDN2T');
+    </script>
+
+    <style>
+        /* Sleek & Techy Redesign Styles */
+        :root {
+            --bg-dark-primary: #0D1117; /* Deep dark blue/grey */
+            --bg-dark-secondary: #161B22; /* Slightly lighter dark */
+            --bg-dark-tertiary: #21262D; /* Card backgrounds */
+            --accent-primary: #00A9FF; /* Bright cyan/blue */
+            --accent-secondary: #38BDF8; /* Lighter cyan for hovers */
+            --text-light-primary: #E6EDF3; /* Main text */
+            --text-light-secondary: #B0BAC6; /* Subdued text */
+            --border-color: #30363D;
+            --font-main: 'Poppins', sans-serif;
+            --font-tech: 'Roboto Mono', monospace;
+            --shadow-glow: 0 0 15px rgba(0, 169, 255, 0.3), 0 0 5px rgba(0, 169, 255, 0.2);
+            --shadow-card: 0px 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            background-color: var(--bg-dark-primary);
+            color: var(--text-light-primary);
+            font-family: var(--font-main);
+            line-height: 1.7;
+            overflow-x: hidden; /* Prevent horizontal scrollbars */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-main);
+            font-weight: 700;
+            color: var(--text-light-primary);
+        }
+
+        p {
+            color: var(--text-light-secondary);
+            font-size: 1rem; /* Base font size */
+        }
+
+        a {
+            color: var(--accent-primary);
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--accent-secondary);
+        }
+
+        .section {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        /* Navigation */
+        .navigation {
+            background-color: rgba(13, 17, 23, 0.8); /* Semi-transparent dark */
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .navigation.is-transparent { /* Initial state */
+            background-color: transparent;
+            border-bottom: none;
+        }
+        .navigation.affix { /* Scrolled state */
+            background-color: rgba(13, 17, 23, 0.85);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .navbar-brand .logo-light { display: inline-block; } /* Ensure white logo is visible */
+        .navbar-brand .logo-color { display: none; } /* Hide color logo on dark bg */
+        
+        .navigation.affix .navbar-brand .logo-light { display: inline-block; }
+        .navigation.affix .navbar-brand .logo-color { display: none; }
+
+        .nav-list > li > a.nav-item {
+            color: var(--text-light-secondary);
+            font-family: var(--font-tech);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 15px 20px;
+        }
+        .nav-list > li > a.nav-item:hover,
+        .nav-list > li > a.nav-item:focus {
+            color: var(--accent-primary);
+            background-color: transparent;
+        }
+        .navbar-toggle {
+            border-color: var(--border-color);
+        }
+        .navbar-toggle .icon-bar {
+            background-color: var(--text-light-primary);
+        }
+
+
+        /* Header Section */
+        .header-section {
+            background: linear-gradient(135deg, var(--bg-dark-primary) 0%, #111827 100%); /* Darker gradient */
+            position: relative;
+            overflow: hidden; /* For potential pseudo-element effects */
+        }
+        
+        /* Optional: Add subtle animated background elements if desired later */
+        /* .header-section::before { ... } */
+
+        .header-texts h1 {
+            font-size: 2.8rem; /* Adjust as needed */
+            margin-bottom: 20px;
+            color: var(--text-light-primary);
+            font-weight: 700;
+        }
+        .header-texts h1 .cd-words-wrapper b {
+            color: var(--accent-primary); /* Accent for rotating words */
+            font-weight: 700;
+        }
+        .header-texts .lead {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--text-light-secondary);
+        }
+
+        .button {
+            background: var(--accent-primary);
+            color: var(--bg-dark-primary);
+            padding: 12px 30px;
+            border-radius: 50px; /* Pill shape */
+            text-transform: uppercase;
+            font-weight: 700;
+            font-family: var(--font-tech);
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-glow);
+            border: 2px solid var(--accent-primary);
+        }
+        .button:hover {
+            background: var(--accent-secondary);
+            border-color: var(--accent-secondary);
+            color: var(--bg-dark-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(0, 169, 255, 0.5), 0 0 10px rgba(0, 169, 255, 0.3);
+        }
+        .header-mockup .mockup-screen {
+            filter: drop-shadow(0px 10px 30px rgba(0,0,0,0.3));
+        }
+         .mockup-screen-one img {
+            border-radius: 8px; /* Slight rounding to TV screen if applicable */
+         }
+         .mockup-screen-two img {
+            border-radius: 20px; /* Rounding for phone screen */
+         }
+
+
+        /* Feature Boxes */
+        .feature-boxes {
+            background-color: var(--bg-dark-secondary);
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+        .feature-boxes .box {
+            background-color: var(--bg-dark-tertiary);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease-in-out;
+            box-shadow: var(--shadow-card);
+            height: 100%; /* For equal height columns if using Bootstrap rows */
+            text-align: center; /* Center content */
+        }
+        .feature-boxes .box:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-primary);
+            box-shadow: 0px 10px 30px rgba(0, 169, 255, 0.1);
+        }
+        .feature-boxes .box-icon {
+            font-size: 2.5rem; /* Larger icons */
+            color: var(--accent-primary);
+            margin-bottom: 20px;
+            display: inline-block;
+            line-height: 1;
+        }
+        .feature-boxes .box-icon .ti { /* Target Themify icons specifically */
+             transition: transform 0.3s ease;
+        }
+        .feature-boxes .box:hover .box-icon .ti {
+            transform: scale(1.1);
+        }
+        .feature-boxes .box h4 {
+            font-size: 1.25rem;
+            color: var(--text-light-primary);
+            margin-bottom: 10px;
+            font-family: var(--font-main);
+            font-weight: 600;
+        }
+        /* Optional: add a small description paragraph if you expand content */
+        .feature-boxes .box p {
+            font-size: 0.9rem;
+            color: var(--text-light-secondary);
+        }
+
+
+        /* Footer Section */
+        .footer-section {
+            background-color: var(--bg-dark-primary);
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-links li {
+            display: inline-block;
+            margin: 0 10px;
+            color: var(--text-light-secondary);
+            font-size: 0.9rem;
+        }
+        .footer-links a {
+            color: var(--text-light-secondary);
+        }
+        .footer-links a:hover {
+            color: var(--accent-primary);
+        }
+        
+        /* Contacts Section (Basic Example) */
+        #contacts {
+            padding: 60px 0;
+            background-color: var(--bg-dark-secondary); /* Match feature box bg */
+            text-align: center;
+        }
+        #contacts h2 {
+            color: var(--text-light-primary);
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+        #contacts p {
+            color: var(--text-light-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        #contacts .contact-info a {
+            display: block;
+            color: var(--accent-primary);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-decoration: none;
+            font-family: var(--font-tech);
+        }
+         #contacts .contact-info a:hover {
+            color: var(--accent-secondary);
+         }
+
+
+        /* Preloader */
+        #preloader {
+            background: var(--bg-dark-primary); /* Match body background */
+        }
+        #status {
+            width: 60px;
+            height: 60px;
+            border: 5px solid var(--accent-primary);
+            border-top-color: transparent;
+            border-radius: 50%;
+            /* Removed old image-based spinner, using border spinner now */
+        }
+
+        /* WOW.js animation adjustments if needed - usually handled by the library */
+        .wow {
+            visibility: hidden; /* Default for WOW.js */
+        }
+        
+        /* Utility for section titles if you add more sections */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--text-light-primary);
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-primary);
+            border-radius: 2px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header-texts h1 {
+                font-size: 2.2rem;
+            }
+            .header-texts .lead {
+                font-size: 1rem;
+            }
+            .button {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+            .header-mockup {
+                margin-top: 40px;
+            }
+            .feature-boxes .box {
+                margin-bottom: 30px; /* Add space between boxes on mobile */
+            }
+            .section {
+                padding-top: 60px;
+                padding-bottom: 60px;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body class="overflow-x-hidden"> {/* Changed from overflow-scroll */}
+
+    <div id="home" class="header-section flex-box-middle section gradiant-background overflow-hidden">
+
+        <div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-collapse-nav" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">
+                            <img class="logo logo-light" src="images/logo-white.svg" width="220px" alt="logo" /> {/* Adjusted size slightly */}
+                            <img class="logo logo-color" src="images/logo.svg" width="220px" alt="logo" />
+                        </a>
+                    </div>
+
+                    <div class="collapse navbar-collapse font-secondary" id="site-collapse-nav">
+                        <ul class="nav nav-list navbar-nav navbar-right">
+                            <li><a class="nav-item" href="#home">Home</a></li> {/* Added Home link */}
+                            <li><a class="nav-item" href="#features">Features</a></li> {/* Link to features */}
+                            <li><a class="nav-item" href="#contacts">Contacts</a></li>
+                        </ul>
+                    </div></div></nav>
+        </div><div class="header-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="header-texts">
+                            <h1 class="cd-headline clip is-full-width wow fadeInUp" data-wow-duration=".5s">
+                                <span>Watch on </span> 
+                                <span class="cd-words-wrapper">
+                                    <b class="is-visible">Your Phone</b>
+                                    <b>Your TV</b>
+                                    <b>Any Device</b> </span>
+                            </h1>
+                            <p class="lead wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Master MAX: The future of streaming. Thousands of live TV channels & an unparalleled VOD library. Sleek, fast, and user-centric.</p>
+                            <ul class="buttons">
+                                <li><a href="app/masterIPTV-3.4.apk" class="button wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".6s">Download APK v3.4</a></li>
+                            </ul>
+                        </div>
+                    </div><div class="col-md-6 header-mockup">
+                        <div class="mockup-screen mockup-screen-one wow fadeInRight" data-wow-duration=".5s"><img src="images/tv.png" alt="Master MAX on TV" /></div>
+                        <div class="mockup-screen mockup-screen-two wow fadeInRight" data-wow-duration=".5s" data-wow-delay=".3s"><img src="images/master phone.png" alt="Master MAX on Phone" /></div>
+                    </div></div></div></div></div><div id="features" class="feature-boxes section"> {/* Added ID for nav link */}
+        <div class="container">
+            <div class="section-title wow fadeInUp" data-wow-duration=".5s">
+                <h2>Core Features</h2>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-3 col-sm-6">
+                    <div class="box wow fadeInUp" data-wow-duration=".5s">
+                        <div class="box-icon">
+                            <em class="ti ti-user"></em>
+                        </div>
+                        <h4>User Friendly</h4>
+                        <p>Intuitive design for seamless navigation.</p>
+                    </div>
+                </div><div class="col-md-3 col-sm-6">
+                    <div class="box wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
+                        <div class="box-icon">
+                            <em class="ti ti-bolt"></em>
+                        </div>
+                        <h4>Super Fast Speed</h4>
+                        <p>Blazing fast streams, zero buffering.</p>
+                    </div>
+                </div><div class="col-md-3 col-sm-6">
+                    <div class="box wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".6s">
+                        <div class="box-icon">
+                            <em class="ti ti-plus"></em>
+                        </div>
+                        <h4>TOP TV channels</h4>
+                        <p>Access to premium global channels.</p>
+                    </div>
+                </div><div class="col-md-3 col-sm-6">
+                    <div class="box wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".9s">
+                        <div class="box-icon">
+                            <em class="ti ti-layout-grid2"></em> </div>
+                        <h4>LARGE VOD LIBRARY</h4>
+                        <p>Thousands of titles at your fingertips.</p>
+                    </div>
+                </div></div></div></div><div id="contacts" class="section">
+        <div class="container">
+            <div class="section-title wow fadeInUp" data-wow-duration=".5s">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
+                    <p>Have questions or want to learn more about Master MAX? Reach out to us!</p>
+                    <div class="contact-info">
+                        <a href="mailto:support@mastermax.app">support@mastermax.app</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div> <div class="footer-section section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <ul class="footer-links inline-list">
+                        <li>Copyright © Master MAX <span id="currentYear"></span>. All Rights Reserved.</li>
+                        {/* Example link */}
+                        {/* Example link */}
+                    </ul>
+                </div></div></div></div><div id="preloader"><div id="status">&nbsp;</div></div> 
+    <script src="assets/js/jquery.bundle.js"></script> <script src="assets/js/script.js"></script> <script>
+        // Small script to update current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
